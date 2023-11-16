@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-ExtraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-ExtraLightItalic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Medium.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-MediumItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-ExtraBoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-ExtraBoldItalic.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-Heavy.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTNorms";
+  src: url("/src/assets/fonts/TTNorms-HeavyItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+.bottom-cut {
+  clip-path: polygon(0 100%, 100% 100%, 100% 0%, 91% 23%, 9% 23%, 0% 0%);
+}
+
+@layer base {
+  * {
+    @apply text-dark;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply relative transition-all duration-300 ease-in-out border-[1px] border-black border-solid rounded-full px-8 py-2 font-medium text-black text-xs sm:text-sm md:text-base lg:text-xl xl:text-2xl;
+  }
+  .btn-outline {
+    @apply hover:text-white overflow-hidden after:content-[''] after:block 
+    after:bg-black after:h-full after:w-full after:absolute after:inset-0 after:-z-10
+    after:translate-y-full after:transition-all after:duration-300 after:ease-in-out hover:after:translate-y-0;
+  }
+  .btn-fill {
+    @apply text-white hover:text-black overflow-hidden after:content-[''] after:block 
+    after:bg-black after:h-full after:w-full after:absolute after:inset-0 after:-z-10
+    after:translate-y-0 after:transition-all after:duration-300 after:ease-in-out hover:after:translate-y-full;
+  }
+}
