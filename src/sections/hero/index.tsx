@@ -5,7 +5,7 @@ const images = [
   "/svg/slides/1.svg",
   "/svg/slides/2.svg",
   "/svg/slides/3.svg",
-  "/svg/slides/4.svg",
+  // "/svg/slides/4.svg",
   "/svg/slides/5.svg",
 ];
 
@@ -38,28 +38,44 @@ export default function Hero() {
 
   return (
     <>
-      <section className="py-8 md:py-14 xl:py-20 relative overflow-x-hidden">
-        <div className=" p-4  flex flex-col flex-wrap justify-center items-center gap-4 md:gap-8 xl:gap-10 2xl:gap-14 pb-36 relative ">
-          <div className="container mx-auto px-8 flex flex-col justify-center items-center py-4">
+      <section className="py-8 md:py-16 xl:py-20 2xl:pb-28 relative overflow-x-hidden">
+        <div className="px-2 sm:px-4 py-4  flex flex-col flex-wrap justify-center items-center gap-4 md:gap-8 xl:gap-10 2xl:gap-14 pb-36 relative ">
+          <div className="container mx-auto px-8 flex flex-col justify-center items-center py-8 xl:py-10">
             <h1
-              className="font-abh text-[#666666] font-bold text-2xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center inline-block max-w-[40ch] lg:max-w-[50ch]   2xl:max-w-8xl relative mx-auto
-          after:inline-block after:content-[''] after:w-full after:h-8 after:bg-hero-line after:bg-no-repeat after:bg-contain xl:after:max-w-2xl after:max-w-[8rem] 
-          sm:after:max-w-[8rem] md:after:max-w-[12rem] lg:after:max-w-[25rem]
+              className=" text-[#666666] font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-[2rem] sm:leading-[2.5rem] md:leading-[3rem] lg:leading-[3.5rem] xl:leading-[4.5rem] 2xl:text-[3.5rem] 2xl:leading-[5rem] text-center inline-block max-w-[35ch] lg:max-w-[35ch]   relative mx-auto
+          after:inline-block after:content-[''] after:w-full after:h-8 after:bg-hero-line after:bg-no-repeat after:bg-contain 2xl:after:max-w-md xl:after:max-w-xs after:max-w-[8rem] 
+          sm:after:max-w-[8rem] md:after:max-w-[8rem] lg:after:max-w-[10rem]
           after:absolute after:bottom-[-1.5rem] after:left-1/2 after:transform after:-translate-x-1/2 after:z-[-1] pb-4
           "
-            data-aos="fade-up"
+              data-aos="fade-up"
             >
-              Enforcing Immutable Content Rules with Sigma:{" "}
+              Next-Gen Life Sciences Litigation Enterprise Suite{" "}<br className=""></br>
               <span className="text-blackDark2">
-                The Future of FDA Compliance
+                FDA's CFR 21 Part 11 Compliance Simplified
               </span>
             </h1>
 
-            <button className="btn btn-outline mt-8 md:mt-12 xl:mt-16 "
-            data-aos="fade-up"
+            <button
+              className="btn btn-outline mt-8 md:mt-12 xl:mt-16 "
+              data-aos="fade-up"
             >
-              An Patent Pending
+              Patent Pending
             </button>
+          </div>
+          <div className="flex justify-center items-center py-2 md:hidden">
+            <div className="flex gap-4 ">
+              {images.map((_, index) => {
+                return (
+                  <Indicator
+                    key={index}
+                    isSelected={index === currentSlide}
+                    onClick={() => {
+                      gotoIndex(index);
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
           <Carousel
             ref={carouselRef}
@@ -79,19 +95,19 @@ export default function Hero() {
               return (
                 <div
                   key={index}
-                  className="flex justify-center items-center p-2 md:p-4 w-full "
+                  className="flex justify-center items-center  w-full"
                 >
                   <img
                     src={image}
                     alt=""
-                    className="w-full max-w-[48.5rem] h-[25rem] md:h-[30rem] xl:h-[40rem] 2xl:h-[45rem]"
+                    className="w-full h-[30rem] md:h-[35rem] xl:h-[45rem] 2xl:h-[50rem] object-contain"
                   />
                 </div>
               );
             })}
           </Carousel>
         </div>
-        <div className="grid gap-4 xl:gap-6 absolute top-[50%] translate-y-[-50%] left-5 md:left-8 xl:left-10">
+        <div className="md:grid gap-4 hidden xl:gap-6 absolute top-[50%] translate-y-[-50%] left-5 md:left-8 xl:left-10">
           {images.map((_, index) => {
             return (
               <Indicator
@@ -109,7 +125,6 @@ export default function Hero() {
        min-h-[30rem] absolute bottom-0 left-[-20rem] right-[-20rem] z-[-1] rounded-t-[100%] 
 
       "
-          
         ></div>
       </section>
       <img

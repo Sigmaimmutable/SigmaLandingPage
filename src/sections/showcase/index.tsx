@@ -14,12 +14,11 @@ export default function Showcase() {
   return (
     <section className=" py-10 md:py-14 xl:py-20 relative bg-blackDark px-4">
       <div
-        className="mt-[-12rem] md:mt-[-16rem] container px-8 py-10 mx-auto bg-white border-[0.5px] border-[#33333350] rounded-xl grid gap-8 md:gap-12 xl:gap-16 2xl:gap-20 "
+        className="mt-[-12rem] md:mt-[-16rem] container px-8 py-10 mx-auto bg-white border-[0.5px] border-[#33333350] rounded-xl grid gap-8 md:gap-12 xl:gap-14 "
         data-aos="fade-up"
       >
-        <p className="text-black text-base md:text-xl xl:text-2xl 2xl:text-3xl text-center">
-          Product item comprised of 20+ blockchain and Lifescience experts
-          across the globe
+        <p className="text-black text-base md:text-xl xl:text-2xl text-center">
+        Product team comprised of 20+ blockchain and Lifescience experts across the globe
         </p>
 
         <div className="flex flex-wrap gap-4 md:gap-6 justify-center items-center">
@@ -27,9 +26,11 @@ export default function Showcase() {
             return (
               <div
                 key={index}
-                className="flex justify-center items-center p-2 md:p-4 w-1/6"
+                className="flex justify-center items-center p-2 md:p-4  w-1/6"
               >
-                <img src={image} alt="" />
+                <img src={image} alt=""
+                className="w-full object-contain max-w-[10rem]"
+                 />
               </div>
             );
           })}
