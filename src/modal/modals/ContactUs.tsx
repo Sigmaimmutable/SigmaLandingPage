@@ -2,7 +2,7 @@ import TextInput from "@components/TextInput";
 import Modal from "../components/Modal";
 import useModal from "../hook/useModal";
 import TextArea from "@components/TextArea";
-import React, { useState, ChangeEvent} from "react";
+import React, { useState, ChangeEvent,MouseEventHandler,FormEvent} from "react";
 
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,10 +17,23 @@ export default function ContactUs() {
   const handleState1Change = (e: ChangeEvent<HTMLInputElement>) => {
     setState1(e.target.value);
   };
-	const [state2, setState2] = useState();
-	const [state3, setState3] = useState();
-	const [state4, setState4] = useState();
-	const [state5, setState5] = useState();
+	const [state2, setState2] =useState<string>('');
+  const handleState2Change = (e: ChangeEvent<HTMLInputElement>) => {
+    setState2(e.target.value);
+  };
+	const [state3, setState3] = useState<string>('');
+  const handleState3Change = (e: ChangeEvent<HTMLInputElement>) => {
+    setState3(e.target.value);
+  };
+	const [state4, setState4] = useState<string>('');
+  const handleState4Change = (e: ChangeEvent<HTMLInputElement>) => {
+    setState4(e.target.value);
+  };
+	const [state5, setState5] = useState<string>('');
+ 
+  const handleState5Change = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setState5(e.target.value);
+  };
 
   
 
@@ -122,19 +135,28 @@ const sendEmail = async () => {
     return false; // Indicate failure
   }
 };
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Add any form validation logic here if needed
-
-   // Send email
+const handleSubmit: MouseEventHandler<HTMLButtonElement> = async (e) => {
+  e.preventDefault();
   const emailSentSuccessfully = await sendEmail();
 
   // Open success modal only if the email is sent successfully
   if (emailSentSuccessfully) {
     openModal("SuccessModal");
   }
-  };
+};
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   // Add any form validation logic here if needed
+
+  //  // Send email
+  // const emailSentSuccessfully = await sendEmail();
+
+  // // Open success modal only if the email is sent successfully
+  // if (emailSentSuccessfully) {
+  //   openModal("SuccessModal");
+  // }
+  // };
   return (
     <Modal isOpen={isOpen("ContactUs")} onClose={closeModal}>
       <Modal.Content className="!rounded-2xl !top-[4%] !max-w-3xl">
@@ -155,34 +177,35 @@ const sendEmail = async () => {
               Contact Us
             </h1>
 
-            <form className="grid gap-5" onSubmit={handleSubmit}>
+            <form className="grid gap-5" >
               <TextInput
                 label="First Name"
                 placeholder="Enter your first name"
                 // value={state1}
                 onChange={handleState1Change}
-                required
+                // required
               />
-              <TextInput label="Last Name" placeholder="Enter your last name" 
+              <TextInput label="Last Name" 
+              placeholder="Enter your last name" 
             // value={state2}
-            onChange={(e) => setState2(e.target.value)}/>
+            onChange={handleState2Change}/>
               <TextInput
                 label="Email"
                 placeholder="Enter your email"
                 // @ts-ignore
                 type="email"
                 value={state3}
-							onChange={(e) => setState3(e.target.value)}
+							onChange={handleState3Change}
               />
               <TextInput
                 label="Company Name"
                 placeholder="Enter your company name"
-                value={state4}
-                onChange={(e) => setState4(e.target.value)}
+                // value={state4}
+                onChange={handleState4Change}
               />
               <TextArea label="Message" placeholder="Enter your message" 
-              value={state5}
-							onChange={(e) => setState5(e.target.value)}
+              // value={state5}
+							onChange={handleState5Change}
               />
               {/* <button
                 className="border-[1px] border-black bg-black border-solid px-6 py-2 md:px-6 md:py-3 xl:px-8 xl:py-3 font-medium text-white mt-4 text-xs md:text-sm xl:text-lg"
