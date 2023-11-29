@@ -2,7 +2,7 @@ import TextInput from "@components/TextInput";
 import Modal from "../components/Modal";
 import useModal from "../hook/useModal";
 import TextArea from "@components/TextArea";
-import React, { useState, ChangeEvent,MouseEventHandler,FormEvent} from "react";
+import { useState, ChangeEvent,MouseEventHandler} from "react";
 
 
 import 'react-toastify/dist/ReactToastify.css';
